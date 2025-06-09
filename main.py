@@ -1,11 +1,27 @@
 import os
 import spotipy
+import tkinter as tk
 
 from spotipy.oauth2 import SpotifyOAuth
+from tkinter import simpledialog
 
 from spotify_playlist_filter_app import SpotifyPlaylistFilterApp
 
 SPOTIFY_SCOPE = "user-read-playback-state user-read-currently-playing playlist-modify-public playlist-modify-private user-modify-playback-state"
+
+def get_spotify_playlist() -> str:
+    input_spotify_playlist_window = tk.Tk()
+    input_spotify_playlist_window.withdraw()
+
+    spotify_playlist = simpledialog.askstring(
+        title="Spotify Playlist",
+        prompt="Insert the Spotify playlist you want to clean: "
+    )
+    spotify_playlist = spotify_playlist.split("playlist/")[1].split("?si")[0]    
+    print(spotify_playlist)
+
+    input_spotify_playlist_window.destroy()
+    return spotify_playlist
 
 
 def main():
@@ -16,9 +32,11 @@ def main():
         scope=SPOTIFY_SCOPE
     ))
 
+    spotify_playlist = get_spotify_playlist()
+
     spotify_playlist_filter_app = SpotifyPlaylistFilterApp(
         spotify_client,
-        "https://open.spotify.com/playlist/5vkNtdvELKN7HliI9asYNn?si=ca860839a07f439c"
+        spotify_playlist
     )
     spotify_playlist_filter_app.run()
 

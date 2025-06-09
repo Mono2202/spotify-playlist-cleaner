@@ -74,9 +74,9 @@ class SpotifyPlaylistFilterApp():
         tk_img = ImageTk.PhotoImage(img)
         self._image_label.config(image=tk_img)
         self._image_label.image = tk_img
-
+ 
     def _update_song(self):
-        update_song_thread = threading.Thread(target=self._fetch_song)
+        update_song_thread = threading.Thread(target=self._fetch_song, daemon=True)
         update_song_thread.start()
 
         self._root.after(1000, self._update_song)
