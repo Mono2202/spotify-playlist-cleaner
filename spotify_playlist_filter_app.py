@@ -55,7 +55,7 @@ class SpotifyPlaylistFilterApp():
         print(f"Removed track {track_name}...")
 
     @_handle_song
-    def _keep_in_playlist_action(self, _, track_name: str):
+    def _keep_in_playlist_action(self, track_id: str, track_name: str):
         print(f"Kept track {track_name}!")
     
     def _fetch_song(self):
