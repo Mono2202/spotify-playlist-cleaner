@@ -1,5 +1,11 @@
 <h1 align="center"> Spotify Playlist Cleaner 🎧🎶🧹🧼 </h1>
 
+<p align="center"> 
+  <img src="https://github.com/user-attachments/assets/e88f3120-9fbd-4749-9dd3-6503bbb0daa3" alt="Spotify Playlist Cleaner Logo" height="300" width="300">
+</p>
+
+<br></br>
+
 <!-- TABLE OF CONTENTS -->
 <h2 id="table-of-contents"> 🐘 Table of Contents</h2>
 
